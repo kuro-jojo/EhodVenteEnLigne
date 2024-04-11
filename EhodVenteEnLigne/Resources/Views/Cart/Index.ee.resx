@@ -117,13 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LanguageEnglish" xml:space="preserve">
-    <value>English</value>
+  <data name="Average" xml:space="preserve">
+    <value>Ve dome</value>
+    <comment>Average</comment>
   </data>
-  <data name="LanguageEwe" xml:space="preserve">
-    <value>Ewe</value>
+  <data name="Checkout" xml:space="preserve">
+    <value>Ɖe asi le nu ŋu</value>
   </data>
-  <data name="LanguageFrench" xml:space="preserve">
-    <value>French</value>
+  <data name="ContinueShopping" xml:space="preserve">
+    <value>Yi Nuƒleƒe Dzi</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Nu</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Asi</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Agbɔsɔsɔ</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Ɖee le eme</value>
+  </data>
+  <data name="Subtotal" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Ƒuƒoƒo</value>
+  </data>
+  <data name="YourCart" xml:space="preserve">
+    <value>Wò tasiaɖam</value>
   </data>
 </root>

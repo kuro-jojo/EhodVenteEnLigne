@@ -117,13 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LanguageEnglish" xml:space="preserve">
-    <value>English</value>
+  <data name="Address" xml:space="preserve">
+    <value>Adrɛs</value>
   </data>
-  <data name="LanguageEwe" xml:space="preserve">
-    <value>Ewe</value>
+  <data name="City" xml:space="preserve">
+    <value>Dugã</value>
   </data>
-  <data name="LanguageFrench" xml:space="preserve">
-    <value>French</value>
+  <data name="CompleteOrder" xml:space="preserve">
+    <value>Nudɔdɔ bliboa</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Dukᴐ</value>
+  </data>
+  <data name="EnterDetails" xml:space="preserve">
+    <value>Taflatse ŋlɔ wò nyatakakawo, eye míaɖo wò adzɔnuwo ɖe wo enumake!</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Teƒe</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ŋkɔ</value>
+  </data>
+  <data name="OrderTitle" xml:space="preserve">
+    <value>Taflatse kpɔe ɖa</value>
+  </data>
+  <data name="ShipSoon" xml:space="preserve">
+    <value>Míaɖo wò adzɔnuwo ɖe wò kaba ale si míate ŋui.</value>
+  </data>
+  <data name="ShipTo" xml:space="preserve">
+    <value>Meli yi</value>
+  </data>
+  <data name="Zip" xml:space="preserve">
+    <value>Zip</value>
   </data>
 </root>

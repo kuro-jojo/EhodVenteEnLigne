@@ -120,10 +120,10 @@
   <data name="LanguageEnglish" xml:space="preserve">
     <value>Anglais</value>
   </data>
+  <data name="LanguageEwe" xml:space="preserve">
+    <value>Ewe</value>
+  </data>
   <data name="LanguageFrench" xml:space="preserve">
     <value>Français</value>
-  </data>
-  <data name="LanguageSpanish" xml:space="preserve">
-    <value>Wolof</value>
   </data>
 </root>

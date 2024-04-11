@@ -117,13 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LanguageEnglish" xml:space="preserve">
-    <value>English</value>
+  <data name="ErrorMissingAddress" xml:space="preserve">
+    <value>Taflatse ŋlɔ adrɛs aɖe</value>
   </data>
-  <data name="LanguageEwe" xml:space="preserve">
-    <value>Ewe</value>
+  <data name="ErrorMissingCity" xml:space="preserve">
+    <value>Taflatse ŋlɔ du aɖe ƒe ŋkɔ</value>
   </data>
-  <data name="LanguageFrench" xml:space="preserve">
-    <value>French</value>
+  <data name="ErrorMissingCountry" xml:space="preserve">
+    <value>Taflatse ŋlɔ dukɔ aɖe ƒe ŋkɔ</value>
+  </data>
+  <data name="ErrorMissingName" xml:space="preserve">
+    <value>Taflatse ŋlɔ ŋkɔ aɖe ɖe eme</value>
+  </data>
+  <data name="ErrorMissingZipCode" xml:space="preserve">
+    <value>Taflatse ŋlɔ zip code la ɖe eme</value>
   </data>
 </root>

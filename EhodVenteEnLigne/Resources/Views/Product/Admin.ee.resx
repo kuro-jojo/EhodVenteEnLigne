@@ -117,13 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LanguageEnglish" xml:space="preserve">
-    <value>English</value>
+  <data name="Administrator" xml:space="preserve">
+    <value>Dɔdzikpɔla</value>
   </data>
-  <data name="LanguageEwe" xml:space="preserve">
-    <value>Ewe</value>
+  <data name="Create" xml:space="preserve">
+    <value>Wᴐ</value>
   </data>
-  <data name="LanguageFrench" xml:space="preserve">
-    <value>French</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Ɖe ɖa</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Nuɖᴐɖᴐ</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Emenuwo</value>
+    <comment>Details</comment>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ŋkɔ</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Asi</value>
+  </data>
+  <data name="ProductAdministrationModule" xml:space="preserve">
+    <value>Adzɔnuwo dzikpɔkpɔ module</value>
+  </data>
+  <data name="Stock" xml:space="preserve">
+    <value>Asigba</value>
   </data>
 </root>

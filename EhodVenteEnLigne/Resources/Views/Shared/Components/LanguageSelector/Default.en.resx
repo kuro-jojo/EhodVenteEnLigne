@@ -126,10 +126,10 @@
   <data name="LanguageEnglish" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="LanguageEwe" xml:space="preserve">
+    <value>Ewe</value>
+  </data>
   <data name="LanguageFrench" xml:space="preserve">
     <value>French</value>
-  </data>
-  <data name="LanguageSpanish" xml:space="preserve">
-    <value>Spanish</value>
   </data>
 </root>

@@ -15,9 +15,8 @@ using System.Linq;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
 
-builder.Services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+
 builder.Services.AddSingleton<ICart, Cart>();
 builder.Services.AddSingleton<ILanguageService, LanguageService>();
 builder.Services.AddTransient<IProductService, ProductService>();
@@ -27,7 +26,7 @@ builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddMvc()
-    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opts => { opts.ResourcesPath = "Resources"; })
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,  opts => { opts.ResourcesPath = "Resources"; })
     .AddDataAnnotationsLocalization();
 
 builder.Services.AddDbContext<EhodBDD>(options =>

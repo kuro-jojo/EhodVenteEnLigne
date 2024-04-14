@@ -120,6 +120,9 @@
   <data name="Address" xml:space="preserve">
     <value>Adrɛs</value>
   </data>
+  <data name="CartEmpty" xml:space="preserve">
+    <value>Kpeɖeŋutɔ, wò tasiaɖam la ƒuƒlu !</value>
+  </data>
   <data name="City" xml:space="preserve">
     <value>Dugã</value>
   </data>

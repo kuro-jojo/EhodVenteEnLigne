@@ -117,19 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ErrorMissingAddress" xml:space="preserve">
-    <value>Taflatse ŋlɔ adrɛs aɖe</value>
+  <data name="Invalid name or password" xml:space="preserve">
+    <value>Nom ou mot de passe incorrect</value>
   </data>
-  <data name="ErrorMissingCity" xml:space="preserve">
-    <value>Taflatse ŋlɔ du aɖe ƒe ŋkɔ</value>
-  </data>
-  <data name="ErrorMissingCountry" xml:space="preserve">
-    <value>Taflatse ŋlɔ dukɔ aɖe ƒe ŋkɔ</value>
-  </data>
-  <data name="ErrorMissingName" xml:space="preserve">
-    <value>Taflatse ŋlɔ ŋkɔ aɖe ɖe eme</value>
-  </data>
-  <data name="ErrorMissingZipCode" xml:space="preserve">
-    <value>Taflatse ŋlɔ zip code la ɖe eme</value>
+  <data name="{0} is missing" xml:space="preserve">
+    <value>Veuillez entrer {0}</value>
   </data>
 </root>

@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using EhodBoutiqueEnLigne.Models.ViewModels;
+using Microsoft.Extensions.Localization;
+using System;
 
 namespace EhodBoutiqueEnLigne.Controllers
 {
@@ -11,17 +13,19 @@ namespace EhodBoutiqueEnLigne.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        public AccountController(UserManager<IdentityUser> userMgr,
-        SignInManager<IdentityUser> signInMgr)
+        private readonly IStringLocalizer<AccountController> _localizer;
+
+        public AccountController(UserManager<IdentityUser> userMgr, SignInManager<IdentityUser> signInMgr, IStringLocalizer<AccountController> localizer)
         {
             _userManager = userMgr;
             _signInManager = signInMgr;
+            _localizer = localizer;
         }
 
         [AllowAnonymous]
         public ViewResult Login(string returnUrl)
         {
-            return View(new LoginModel
+            return View(new Login
             {
                 ReturnUrl = returnUrl
             });
@@ -30,23 +34,22 @@ namespace EhodBoutiqueEnLigne.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel loginModel)
+        public async Task<IActionResult> Login(Login loginModel)
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user =
-                await _userManager.FindByNameAsync(loginModel.Name);
+                IdentityUser user =  await _userManager.FindByNameAsync(loginModel.Name);
                 if (user != null)
                 {
                     await _signInManager.SignOutAsync();
                     if ((await _signInManager.PasswordSignInAsync(user,
-                    loginModel.Password, false, false)).Succeeded)
+                    loginModel.Password, false, false)).Succeeded) 
                     {
                         return Redirect(loginModel.ReturnUrl ?? "/Admin/Index");                       
                     }
                 }
             }
-            ModelState.AddModelError("", "Invalid name or password");
+            ModelState.AddModelError("InvalidLogin", _localizer["Invalid name or password"]);
             return View(loginModel);
         }
 

@@ -22,16 +22,16 @@ namespace EhodBoutiqueEnLigne.Controllers
 
         public ViewResult Index()
         {
+            if (!((Cart)_cart).Lines.Any())
+            {
+                ModelState.AddModelError("CartEmpty", _localizer["CartEmpty"]);
+            }
             return View(new OrderViewModel());
         }
 
         [HttpPost]
         public IActionResult Index(OrderViewModel order)
         {
-            if (!((Cart) _cart).Lines.Any())
-            {
-                ModelState.AddModelError("", _localizer["CartEmpty"]);
-            }
             if (ModelState.IsValid)
             {
                 order.Lines = ((Cart) _cart)?.Lines.ToArray();

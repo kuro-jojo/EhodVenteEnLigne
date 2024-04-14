@@ -14,7 +14,6 @@ namespace EhodBoutiqueEnLigne.Models.Services
         void UpdateProductQuantities();
         void SaveProduct(ProductViewModel product);
         void DeleteProduct(int id);
-        List<string> CheckProductModelErrors(ProductViewModel product);
         Task<Product> GetProduct(int id);
         Task<IList<Product>> GetProduct();
     }

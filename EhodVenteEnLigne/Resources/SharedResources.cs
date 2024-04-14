@@ -13,57 +13,37 @@ namespace EhodVenteEnLigne.Resources
 
     {
         private static ResourceManager resourceMan;
-
         private static CultureInfo resourceCulture;
 
         [EditorBrowsable(EditorBrowsableState.Advanced)]
 
         public static ResourceManager ResourceManager
-
         {
             get
-
             {
                 if (ReferenceEquals(resourceMan, null))
-
                 {
-
                     ResourceManager temp = new ResourceManager("EhodVenteEnLigne.Resources.SharedResources", typeof(SharedResources).Assembly);
-
                     resourceMan = temp;
-
                 }
-
                 return resourceMan;
-
             }
-
-        }
-
-
+        } 
 
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-
         public static CultureInfo Culture
-
         {
-
             get { return resourceCulture; }
-
             set { resourceCulture = value; }
-
         }
-
 
         public static string ErrorMissing
-
         {
             get { return ResourceManager.GetString("{0} is missing", resourceCulture); }
-
         }
-
+        public static string ErrorNotANumber
+        {
+            get { return ResourceManager.GetString("ErrorNotANumber", resourceCulture); }
+        }
     }
-
-
-
 }

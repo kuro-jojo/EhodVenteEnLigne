@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Localization;
 using EhodBoutiqueEnLigne.Models.Entities;
 using EhodBoutiqueEnLigne.Models.Repositories;
 using EhodBoutiqueEnLigne.Models.ViewModels;
@@ -14,27 +13,21 @@ namespace EhodBoutiqueEnLigne.Models.Services
     {
         private readonly ICart _cart;
         private readonly IProductRepository _productRepository;
-        private readonly IOrderRepository _orderRepository;
-        private readonly IStringLocalizer<ProductService> _localizer;
-
-        public ProductService(ICart cart, IProductRepository productRepository,
-            IOrderRepository orderRepository, IStringLocalizer<ProductService> localizer)
+        public ProductService(ICart cart, IProductRepository productRepository)
         {
             _cart = cart;
             _productRepository = productRepository;
-            _orderRepository = orderRepository;
-            _localizer = localizer;
         }
         public List<ProductViewModel> GetAllProductsViewModel()
         {
-             
+
             IEnumerable<Product> productEntities = GetAllProducts();
             return MapToViewModel(productEntities);
         }
 
         private static List<ProductViewModel> MapToViewModel(IEnumerable<Product> productEntities)
         {
-            List <ProductViewModel> products = new List<ProductViewModel>();
+            List<ProductViewModel> products = new List<ProductViewModel>();
             foreach (Product product in productEntities)
             {
                 products.Add(new ProductViewModel
@@ -83,7 +76,7 @@ namespace EhodBoutiqueEnLigne.Models.Services
         }
         public void UpdateProductQuantities()
         {
-            Cart cart = (Cart) _cart;
+            Cart cart = (Cart)_cart;
             foreach (CartLine line in cart.Lines)
             {
                 _productRepository.UpdateProductStocks(line.Product.Id, line.Quantity);

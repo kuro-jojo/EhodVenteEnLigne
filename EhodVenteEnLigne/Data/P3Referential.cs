@@ -14,7 +14,11 @@ namespace EhodBoutiqueEnLigne.Data
         public EhodBDD(DbContextOptions<EhodBDD> options, IConfiguration config)
             : base(options)
         {
-             DbConnection = new SqlConnection(config.GetConnectionString("EhodBDD"));
+            DbConnection = new SqlConnection(config.GetConnectionString("EhodBDD"));
+        }
+        public EhodBDD()
+        {
+            // Parameterless constructor
         }
 
         public virtual DbSet<Order> Order { get; set; }
@@ -37,7 +41,7 @@ namespace EhodBoutiqueEnLigne.Data
             modelBuilder.Entity<OrderLine>(entity =>
             {
                 entity.HasIndex(e => e.OrderId)
-                    .HasName("IX_OrderLineEntity_OrderEntityId");
+                    .HasDatabaseName("IX_OrderLineEntity_OrderEntityId");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderLine)

@@ -11,10 +11,13 @@ namespace EhodBoutiqueEnLigne.Models.Repositories
     {
         private static EhodBDD _context;
 
+
         public ProductRepository(EhodBDD context)
         {
                 _context = context;
         }
+
+
         public async Task<Product> GetProduct(int id)
         {
             var product = await _context.Product.SingleOrDefaultAsync(m => m.Id == id);

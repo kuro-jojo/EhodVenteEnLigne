@@ -1,30 +1,29 @@
-﻿using EhodBoutiqueEnLigne.Models.ViewModels;
+﻿using EhodBoutiqueEnLigne.Data;
+using EhodBoutiqueEnLigne.Models;
+using EhodBoutiqueEnLigne.Models.Entities;
+using EhodBoutiqueEnLigne.Models.Repositories;
+using EhodBoutiqueEnLigne.Models.Services;
+using EhodBoutiqueEnLigne.Models.ViewModels;
+using Moq;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using Xunit;
 
 namespace EhodBoutiqueEnLigne.Tests
-    {
+{
     public class ProductServiceTests
+    {
+        ProductService _productService;
+        Mock<EhodBDD> _context = new Mock<EhodBDD>();
+
+        public ProductServiceTests()
         {
-        /// <summary>
-        /// Take this test method as a template to write your test method.
-        /// A test method must check if a definite method does its job:
-        /// returns an expected value from a particular set of parameters
-        /// </summary>
-        [Fact]
-        public void ExampleMethod()
-            {
-            // Arrange
-
-            // Act
-
-
-            // Assert
-            Assert.Equal(1, 1);
-            }
-
-        // TODO write test methods to ensure a correct coverage of all possibilities
         }
 
+        [Fact]
+        public void GetAllProducts_ShouldReturnAllProducts()
+        {
+            
+        }
     }
+
+}

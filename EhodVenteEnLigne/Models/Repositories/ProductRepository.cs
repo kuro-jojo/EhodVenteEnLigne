@@ -17,7 +17,6 @@ namespace EhodBoutiqueEnLigne.Models.Repositories
                 _context = context;
         }
 
-
         public async Task<Product> GetProduct(int id)
         {
             var product = await _context.Product.SingleOrDefaultAsync(m => m.Id == id);

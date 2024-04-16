@@ -8,8 +8,7 @@
     {
         <span class="text-danger">@Localizer["CartEmpty"]</span>
     }else {
-         <form asp-action="Index" method="post">
-
+        <form asp-action="Index" method="post">
             <h3>@Localizer["ShipTo"]</h3>
             <div class="mb-3">
                 <label>@Localizer["Name"]*:</label><input asp-for="Name" class="form-control" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EhodBoutiqueEnLigne.Models.Entities;
 using EhodBoutiqueEnLigne.Models.Repositories;
 using EhodBoutiqueEnLigne.Models.ViewModels;
-
+using System.ComponentModel.DataAnnotations;
 namespace EhodBoutiqueEnLigne.Models.Services
 {
     public class ProductService : IProductService
@@ -83,8 +83,15 @@ namespace EhodBoutiqueEnLigne.Models.Services
             }
         }
 
+        /// <summary>
+        /// Saves the product.
+        /// </summary>
+        /// <param name="product">The product to save.</param>
+        /// <exception cref="System.Exception">Thrown when the product is not valid.</exception>
         public void SaveProduct(ProductViewModel product)
         {
+            ProductValidator(product);
+
             var productToAdd = MapToProductEntity(product);
             _productRepository.SaveProduct(productToAdd);
         }
@@ -104,12 +111,34 @@ namespace EhodBoutiqueEnLigne.Models.Services
 
         public void DeleteProduct(int id)
         {
-            // TODO what happens if a product has been added to a cart and has been later removed from the inventory ?
-            // delete the product form the cart by using the specific method
-            // => the choice is up to the student
-            _cart.RemoveLine(GetProductById(id));
+            // Get the product by id
+            var product = GetProductById(id);
 
+            // If the product doesn't exist in the inventory, throw an exception
+            if (product == null)
+            {
+                // throw new InvalidOperationException("Product does not exist in the inventory.");
+                return;
+            }
+
+            // Remove the product from the cart
+            _cart.RemoveLine(product);
+
+            // Delete the product from the inventory
             _productRepository.DeleteProduct(id);
+        }
+
+
+        private void ProductValidator(ProductViewModel product)
+        {
+            var context = new ValidationContext(product, serviceProvider: null, items: null);
+            var results = new List<ValidationResult>();
+            var isValid = Validator.TryValidateObject(product, context, results);
+
+            if (!isValid)
+            {
+                throw new Exception("\n" + string.Join("\n", results.Select(s => s.ErrorMessage).ToArray()));
+            }
         }
     }
 }

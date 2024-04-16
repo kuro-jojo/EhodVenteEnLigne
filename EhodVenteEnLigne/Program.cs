@@ -26,7 +26,7 @@ builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddMvc()
-    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,  opts => { opts.ResourcesPath = "Resources"; })
+    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix, opts => { opts.ResourcesPath = "Resources"; })
     .AddDataAnnotationsLocalization();
 
 builder.Services.AddDbContext<EhodBDD>(options =>
@@ -61,7 +61,7 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-var supportedCultures = new[] { "en-GB", "en-US", "en" ,"ee-EE", "ee", "fr-FR", "fr" };
+var supportedCultures = new[] { "en-GB", "en-US", "en", "ee-EE", "ee", "fr-FR", "fr" };
 var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
     .AddSupportedCultures(supportedCultures.ToArray())
     .AddSupportedUICultures(supportedCultures);
@@ -78,6 +78,10 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Product}/{action=Index}/{id?}");
 
-await IdentitySeedData.EnsurePopulated(app);
+using (var serviceScope = app.Services.CreateScope())
+{
+    var config = serviceScope.ServiceProvider.GetRequiredService<IConfiguration>();
+    await IdentitySeedData.EnsurePopulated(app, config);
+}
 
 app.Run();

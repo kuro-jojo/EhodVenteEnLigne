@@ -1,25 +1,25 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 
 namespace EhodBoutiqueEnLigne.Data
 {
     public static class IdentitySeedData
     {
-        private const string AdminUser = "Admin";
-        private const string AdminPassword = "P@ssword123";
-
-        public static async Task EnsurePopulated(IApplicationBuilder app)
+        public static async Task EnsurePopulated(IApplicationBuilder app, IConfiguration config)
         {
+            string AdminUser = config.GetValue<string>("AdminUser");
+            string AdminPassword = config.GetValue<string>("AdminPassword");
+
             using var scope = app.ApplicationServices.CreateScope();
             var userManager = (UserManager<IdentityUser>)scope.ServiceProvider.GetService(typeof(UserManager<IdentityUser>));
 
-            IdentityUser user = await userManager.FindByIdAsync(AdminUser);
-
+            IdentityUser user = await userManager.FindByNameAsync(AdminUser);
             if (user == null)
             {
-                user = new IdentityUser("Admin");
+                user = new IdentityUser(AdminUser);
                 await userManager.CreateAsync(user, AdminPassword);
             }
         }

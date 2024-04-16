@@ -2,7 +2,7 @@
 @model EhodBoutiqueEnLigne.Models.ViewModels.Login
 @inject IViewLocalizer Localizer
 
- @{
+@{
     ViewBag.Title = Localizer["LogIn"];
     Layout = "_AdminLayout";
 }
@@ -13,18 +13,17 @@
     {
         <span class="text-danger">@Localizer["Invalid name or password"]</span>
     }
-  
+
     <div class="mb-3">
         <label asp-for="Name" class="control-label">@Localizer["Name"]</label>
         <input asp-for="Name" class="form-control" />
-       <span asp-validation-for="Name" class="text-danger"></span>
-   </div>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
     <div class="mb-3">
         <label asp-for="Password" class="form-label">@Localizer["Password"]</label>
-        <input asp-for="Password" class="form-control" />
-        <div><span asp-validation-for="Password" class="text-danger"></span></div>       
+        <input asp-for="Password" class="form-control" type="password" />
+        <div><span asp-validation-for="Password" class="text-danger"></span></div>
     </div>
 
     <button class="btn btn-primary" type="submit">@Localizer["LogIn"]</button>
 </form>
-

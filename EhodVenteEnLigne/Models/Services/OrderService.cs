@@ -3,6 +3,8 @@ using EhodBoutiqueEnLigne.Models.Repositories;
 using EhodBoutiqueEnLigne.Models.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 using Order = EhodBoutiqueEnLigne.Models.Entities.Order;
 
@@ -30,11 +32,18 @@ namespace EhodBoutiqueEnLigne.Models.Services
             var orders = await _orderRepository.GetOrders();
             return orders;
         }
+
+        /// <summary>
+        /// Saves the order.
+        /// </summary>
+        /// <param name="order">The order to save.</param>
+        /// <exception cref="System.Exception">Thrown when the order is not valid.</exception>
         public void SaveOrder(OrderViewModel order)
         {
+            OrderValidator(order);
             var orderToAdd = MapToOrderEntity(order);
             _orderRepository.Save(orderToAdd);
-             UpdateInventory();
+            UpdateInventory();
         }
 
         private static Order MapToOrderEntity(OrderViewModel order)
@@ -62,6 +71,22 @@ namespace EhodBoutiqueEnLigne.Models.Services
         {
             _productService.UpdateProductQuantities();
             _cart.Clear();
+        }
+
+        private void OrderValidator(OrderViewModel order)
+        {
+            var context = new ValidationContext(order, serviceProvider: null, items: null);
+            var results = new List<ValidationResult>();
+            var isValid = Validator.TryValidateObject(order, context, results);
+
+            if (order.Lines == null)
+            {
+                throw new Exception("\n" + "Please add products to the order.");
+            }
+            if (!isValid)
+            {
+                throw new Exception("\n" + string.Join("\n", results.Select(s => s.ErrorMessage).ToArray()));
+            }
         }
     }
 }

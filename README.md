@@ -54,7 +54,7 @@ dotnet tool install --global dotnet-user-secrets
 Pour ajouter les secrets utilisateur "Administrator" à votre projet, exécutez les commandes suivantes dans le répertoire racine de votre projet :
 ```bash
 dotnet user-secrets set "Administrator:User" "VotreNomDUtilisateur"
-dotnet user-secrets set "Administrator:Password" "VotreMotDePasse" (Min 8 char + char spécial)
+dotnet user-secrets set "Administrator:Password" "VotreMotDePasse" (Min 8 char + char spécial + chiffres)
 ```
 #### Utilisation 
 Ces secrets sont utilisés dans [IdentitySeedData.cs](EhodVenteEnLigne/Data/IdentitySeedData.cs)

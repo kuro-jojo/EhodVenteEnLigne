@@ -1,15 +1,18 @@
-# DotNetEnglishP3
-Dépôt de l’étudiant pour le projet 3 du parcours Développeur Back-End .NET. Afin d'être au plus proche d'une situation professionnelle réelle, le code dans ce dépôt est en anglais.
+# EhodVenteEnLigne
 
 Ce projet possède une base de données intégrée qui sera créée lorsque l’application sera exécutée pour la première fois. Pour la créer correctement, vous devez satisfaire aux prérequis ci-dessous et mettre à jour les chaînes de connexion pour qu’elles pointent vers le serveur MSSQL qui est exécuté sur votre PC en local.
 
-**Prérequis** : MSSQL Developer 2019 ou Express 2019 doit être installé avec Microsoft SQL Server Management Studio (SSMS).
+## Prérequis : 
+
+### Base de donnée
+
+MSSQL Developer 2019 ou Express 2019 doit être installé avec Microsoft SQL Server Management Studio (SSMS).
 
 MSSQL : https://www.microsoft.com/fr-fr/sql-server/sql-server-downloads
 
 SSMS : https://docs.microsoft.com/fr-fr/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16
 
-*Remarque : les versions antérieures de MSSQL Server devraient fonctionner sans problèmes, mais elles n’ont pas été testées.
+*Remarque : les versions antérieures de MSSQL Server devraient fonctionner sans problèmes, mais elles n’ont pas été testées.*
 
 *Dans le projet P3AddNewFunctionalityDotNetCore, ouvrez le fichier appsettings.json.*
 
@@ -36,3 +39,27 @@ Si vous avez installé MSSQL Express, la valeur à utiliser pour Server est trè
   
 Si vous avez des difficultés à vous connecter, essayez d’abord de vous connecter à l’aide de Microsoft SQL Server Management Studio (assurez-vous que le type d’authentification est « Authentification Windows »), ou consultez le site https://sqlserver-help.com/2011/06/19/help-whats-my-sql-server-name/.
 Si le problème persiste, demandez de l’aide à votre mentor.
+
+### Configuration
+
+Pour pouvoir se connecter à la base de donnée, au lancement du projet si aucun administrateur n'est ajouté précédemment, un admin défini par l'utilisateur sera ajouté.
+Pour se faire, il faut créer un **User Secret** au sein du projet .NET.
+
+*Si vous n'avez pas encore installé l'outil de gestion des secrets, vous pouvez le faire en exécutant la commande suivante dans votre terminal :*
+```bash
+dotnet tool install --global dotnet-user-secrets
+```
+
+#### Ajout des Secrets Utilisateur
+Pour ajouter les secrets utilisateur "Administrator" à votre projet, exécutez les commandes suivantes dans le répertoire racine de votre projet :
+```bash
+dotnet user-secrets set "Administrator:User" "VotreNomDUtilisateur"
+dotnet user-secrets set "Administrator:Password" "VotreMotDePasse" (Min 8 char + char spécial)
+```
+#### Utilisation 
+Ces secrets sont utilisés dans [IdentitySeedData.cs](EhodVenteEnLigne/Data/IdentitySeedData.cs)
+
+```csharp
+string AdminUser = config["Administrator:User"];
+string AdminPassword = config["Administrator:Password"];
+```

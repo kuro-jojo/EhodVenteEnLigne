@@ -8,10 +8,11 @@ namespace EhodBoutiqueEnLigne.Data
 {
     public static class IdentitySeedData
     {
+
         public static async Task EnsurePopulated(IApplicationBuilder app, IConfiguration config)
         {
-            string AdminUser = config.GetValue<string>("AdminUser");
-            string AdminPassword = config.GetValue<string>("AdminPassword");
+            string AdminUser = config["Administrator:User"];
+            string AdminPassword = config["Administrator:Password"];
 
             using var scope = app.ApplicationServices.CreateScope();
             var userManager = (UserManager<IdentityUser>)scope.ServiceProvider.GetService(typeof(UserManager<IdentityUser>));

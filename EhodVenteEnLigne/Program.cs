@@ -78,10 +78,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Product}/{action=Index}/{id?}");
 
-using (var serviceScope = app.Services.CreateScope())
-{
-    var config = serviceScope.ServiceProvider.GetRequiredService<IConfiguration>();
-    await IdentitySeedData.EnsurePopulated(app, config);
-}
+
+await IdentitySeedData.EnsurePopulated(app, app.Configuration);
 
 app.Run();

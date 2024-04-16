@@ -118,9 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErrorNotANumber" xml:space="preserve">
-    <value>Please enter a number</value>
+    <value>Please enter a number greater or equal than 0</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
   </data>
   <data name="{0} is missing" xml:space="preserve">
-    <value>Please enter a {0}</value>
+    <value>Please enter a value for {0}</value>
   </data>
 </root>

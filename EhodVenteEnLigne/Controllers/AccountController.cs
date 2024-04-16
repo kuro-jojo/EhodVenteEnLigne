@@ -13,13 +13,11 @@ namespace EhodBoutiqueEnLigne.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly IStringLocalizer<AccountController> _localizer;
 
-        public AccountController(UserManager<IdentityUser> userMgr, SignInManager<IdentityUser> signInMgr, IStringLocalizer<AccountController> localizer)
+        public AccountController(UserManager<IdentityUser> userMgr, SignInManager<IdentityUser> signInMgr)
         {
             _userManager = userMgr;
             _signInManager = signInMgr;
-            _localizer = localizer;
         }
 
         [AllowAnonymous]
@@ -39,7 +37,7 @@ namespace EhodBoutiqueEnLigne.Controllers
             if (ModelState.IsValid)
             {
                 IdentityUser user =  await _userManager.FindByNameAsync(loginModel.Name);
-                if (user != null)
+                 if (user != null)
                 {
                     await _signInManager.SignOutAsync();
                     if ((await _signInManager.PasswordSignInAsync(user,
@@ -48,8 +46,8 @@ namespace EhodBoutiqueEnLigne.Controllers
                         return Redirect(loginModel.ReturnUrl ?? "/Admin/Index");                       
                     }
                 }
+                ModelState.AddModelError("InvalidLogin", "");
             }
-            ModelState.AddModelError("InvalidLogin", _localizer["Invalid name or password"]);
             return View(loginModel);
         }
 

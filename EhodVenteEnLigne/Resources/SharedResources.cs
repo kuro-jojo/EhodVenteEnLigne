@@ -45,5 +45,6 @@ namespace EhodVenteEnLigne.Resources
         {
             get { return ResourceManager.GetString("ErrorNotANumber", resourceCulture); }
         }
+         
     }
 }

@@ -118,12 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ErrorNotANumber" xml:space="preserve">
-    <value>Veuillez entrez un nombre</value>
+    <value>Veuillez entrez un nombre supérieur ou égal à 0</value>
   </data>
   <data name="Invalid name or password" xml:space="preserve">
     <value>Nom ou mot de passe incorrect</value>
   </data>
   <data name="{0} is missing" xml:space="preserve">
-    <value>Veuillez entrer {0}</value>
+    <value>Veuillez entrer la valeur de  {0}</value>
   </data>
 </root>
